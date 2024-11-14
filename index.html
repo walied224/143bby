@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>143</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 900px;
+        }
+
+        .image-container {
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .quality-options {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .option {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 15px 25px;
+            width: 120px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .option:hover {
+            transform: scale(1.1);
+            background-color: #e3e3e3;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .option img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 50%;
+        }
+
+        .option h3 {
+            font-size: 16px;
+            color: #333;
+            margin: 0;
+        }
+
+        .option p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .quality-options {
+                flex-direction: column;
+            }
+
+            .option {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="title">1 4 vashti 4 ever</div>
+    
+    <!-- صورة الفيديو الرئيسية -->
+    <div class="image-container">
+        <img id="main-image" src="https://via.placeholder.com/800x400.png?text=صورة+فيديو" alt="صورة الفيديو">
+    </div>
+
+    <!-- خيارات الجودة -->
+    <div class="quality-options">
+        <!-- خيار 144p -->
+        <div class="option" onclick="changeImage('144p')">
+            <img src="144p.jpeg" alt="144p">
+            <h3>144p</h3>
+            <p>جودة منخفضة</p>
+        </div>
+        
+        <!-- خيار 280p -->
+        <div class="option" onclick="changeImage('280p')">
+            <img src="480.jpeg" alt="280p">
+            <h3>280p</h3>
+            <p>جودة متوسطة</p>
+        </div>
+        
+        <!-- خيار 720p -->
+        <div class="option" onclick="changeImage('720p')">
+            <img src="720p.jpeg" alt="720p">
+            <h3>720p</h3>
+            <p>جودة عالية</p>
+        </div>
+        
+        <!-- خيار 1080p -->
+        <div class="option" onclick="changeImage('1080p')">
+            <img src="1080.jpg" alt="1080p">
+            <h3>1080p</h3>
+            <p>جودة فائقة</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // وظيفة لتغيير الصورة عند الضغط على أي اختيار
+    function changeImage(quality) {
+        const mainImage = document.getElementById('main-image');
+        
+        // تحديد الصورة حسب الجودة المختارة
+        let imageUrl = '';
+        switch(quality) {
+            case '144p':
+                imageUrl = '144p.jpeg';
+                break;
+            case '280p':
+                imageUrl = '480.jpeg';
+                break;
+            case '720p':
+                imageUrl = '720p.jpeg';
+                break;
+            case '1080p':
+                imageUrl = '1080.jpg';
+                break;
+        }
+
+        // تغيير مصدر الصورة الرئيسية إلى الصورة المختارة
+        mainImage.src = imageUrl;
+    }
+</script>
+
+</body>
+</html>
